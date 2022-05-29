@@ -87,7 +87,7 @@ program.command('newProject').action(async () => {
   const result = await newProject()
   if (result)
     console.log(
-      ` The project was created successfully in ${result.projectName}.`
+      ` The project was created in ${result.projectName}.`
     )
 })
 
