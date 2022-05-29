@@ -157,7 +157,6 @@ program.command('deploy').action(async () => {
       })
       .then(res => {
         fse.remove(`${CURR_DIR}/build.zip`)
-        console.log(res)
         console.log(chalk.green('deploy was successful'))
       })
       .catch(err => {
