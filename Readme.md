@@ -8,7 +8,8 @@
 `plotset-cli login`
 
 ## project
-`plotset-cli newProject` 
+`plotset-cli newProject project name` 
+
 create project template folder 
 
 ## deploy
@@ -18,4 +19,4 @@ create project template folder
 
 - step3 `npm run build`
 
-`plotset-cli deploy`
+- step4 `plotset-cli deploy`

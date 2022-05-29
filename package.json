@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "author": "amird308",
+  "author": "Amir Damirchi <amird308@gmail.com>",
+  "license": "UNLICENSED",
   "bin": {
     "plotset-cli": "src/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amird308/plotset-cli"
+  },
+  "bugs": {
+    "url": "https://github.com/amird308/plotset-cli/issues"
+  },
+  "homepage": "https://github.com/amird308/plotset-cli",
   "dependencies": {
     "adm-zip": "^0.5.9",
     "axios": "^0.27.2",
