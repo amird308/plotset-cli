@@ -1,0 +1,35 @@
+{
+  "name": "plotset-bundler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "reload --browser --dir src",
+    "build": "webpack",
+    "serve": "http-server dist"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
+    "@types/mini-css-extract-plugin": "^2.5.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.5",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.2.1",
+    "css-loader": "^4.3.0",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "http-server": "^0.12.3",
+    "jsdom": "^16.4.0",
+    "mini-css-extract-plugin": "^1.0.0",
+    "reload": "^3.1.1",
+    "surge": "^0.21.6",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/runtime": "^7.18.3",
+    "pug-loader": "^2.4.0",
+    "terser-webpack-plugin": "^5.3.1"
+  }
+}
