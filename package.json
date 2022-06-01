@@ -1,6 +1,6 @@
 {
   "name": "plotset-cli",
-  "version": "1.0.2",
+  "version": "1.0.28",
   "description": "",
   "main": "index.js",
   "author": "Amir Damirchi <amird308@gmail.com>",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/amird308/plotset-cli",
   "dependencies": {
+    "@types/mini-css-extract-plugin": "^2.5.1",
     "adm-zip": "^0.5.9",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",

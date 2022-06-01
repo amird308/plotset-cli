@@ -10,25 +10,25 @@ module.exports = {
   context: __dirname,
   entry: {
     main: './src/js/index.js',
-    styles: './src/css/main.css',
+    styles: './src/css/main.css'
   },
   stats: { children: true },
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '',
-    filename: '[name].[contenthash].js',
+    filename: '[name].[contenthash].js'
   },
   optimization: {
     minimize: true,
     // removeEmptyChunks: false,
     minimizer: [
-        new TerserPlugin({
-            terserOptions: {
-                keep_classnames: true,
-                keep_fnames: true,
-            }
-          })
-        ]
+      new TerserPlugin({
+        terserOptions: {
+          keep_classnames: true,
+          keep_fnames: true
+        }
+      })
+    ]
   },
   module: {
     rules: [
@@ -39,18 +39,23 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
-            plugins:[
-              [require.resolve("@babel/plugin-transform-runtime"),
-              {
-                "regenerator": true,
-                corejs: false,
-                useESModules: true,
-                helpers: false,
-              }
-            ],
+            plugins: [
+              [
+                require.resolve('@babel/plugin-transform-runtime'),
+                {
+                  regenerator: true,
+                  corejs: false,
+                  useESModules: true,
+                  helpers: false
+                }
+              ]
             ]
           }
         }
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader'
       },
       {
         test: /\.css$/i,
@@ -59,8 +64,8 @@ module.exports = {
       { test: /\.pug$/, loader: 'pug-loader' },
       {
         test: /\.html$/i,
-        loader: "html-loader",
-      },
+        loader: 'html-loader'
+      }
     ]
   },
   plugins: [
@@ -71,16 +76,16 @@ module.exports = {
         { from: 'src/data.csv', to: 'data.csv' },
         { from: 'src/info.json', to: 'info.json' },
         { from: 'src/settings.json', to: 'settings.json' },
-        { from: 'src/thumbnail.png', to: 'thumbnail.png' },
-      ],
+        { from: 'src/thumbnail.png', to: 'thumbnail.png' }
+      ]
     }),
     new HtmlWebpackPlugin({
       inject: false,
       minify: true,
       cache: false,
       template: 'template.pug',
-      filename: 'index.html',
+      filename: 'index.html'
     }),
-    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
-  ],
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' })
+  ]
 }

@@ -1,12 +1,14 @@
 #! /usr/bin/env node
 const inquirer = require('inquirer')
 const fse = require('fs-extra')
+const mkdirp = require('mkdirp');
 const Conf = require('conf')
 const FormData = require('form-data')
 const chalk = require('chalk')
 const axios = require('axios').default
 const { program } = require('commander')
 const AdmZip = require('adm-zip')
+const exec = require('child_process').execSync;
 const CURR_DIR = process.cwd()
 
 const LOGIN_QUESTIONS = [
@@ -81,13 +83,15 @@ program.command('login').action(async () => {
   console.log(chalk.green(`welcome ${userInfo.email}`))
 })
 
-program.command('newProject').action(async () => {
+program.command('create').action(async () => {
   const check = await checkAuth()
   if (!check) await login()
   const result = await newProject()
   if (result)
     console.log(
+      chalk.green(
       ` The project was created in ${result.projectName}.`
+      )
     )
 })
 
@@ -102,6 +106,7 @@ program.command('profile').action(async () => {
 
 program.command('deploy').action(async () => {
   const check = await checkAuth()
+  exec('npm run build')
   if (!check) await login()
   const distExists = await fse.pathExists(`${CURR_DIR}/dist`)
   if (!distExists) {
@@ -234,8 +239,17 @@ async function newProject () {
   const templatePath = `${__dirname}/templates/chart`
 
   try {
-    return new Promise(resolve => {
-      fse.copySync(templatePath, `${CURR_DIR}/${projectName}/`)
+    return new Promise(async resolve => {
+
+      try {
+        mkdirp.sync(`${CURR_DIR}/${projectName}`);
+      } catch (e) {
+        
+      }
+      createDirectoryContents(projectName, templatePath, projectName);
+      // fse.copySync(templatePath, `${CURR_DIR}/${projectName}/`)
+
+      exec(`cd ${projectName} && git init --initial-branch=master && git add . && git commit -m "initial ${projectName}" && git tag 0.0.1 -a -m "initial ${projectName} 0.0.1-beta1" && npm i -quiet && npm run build`)
       resolve({ projectName, templatePath })
     })
   } catch (err) {
@@ -264,6 +278,39 @@ function errorLog (err) {
     console.log(chalk.red(err))
     return
   }
+}
+
+function createDirectoryContents (projectName, templatePath, newProjectPath) {
+  const filesToCreate = fse.readdirSync(templatePath);
+
+  filesToCreate.forEach(file => {
+    const origFilePath = `${templatePath}/${file}`;
+    
+    // get stats about the current file
+    const stats = fse.statSync(origFilePath);
+    if (stats.isFile()) {
+      file = file.replace(/^_/, '');
+      const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
+      var imageReg = /[\/.](gif|jpg|jpeg|tiff|png)$/i;
+      if(imageReg.test(file)){
+        fse.copyFile(origFilePath, writePath)
+      }
+      else {
+      const contents = fse.readFileSync(origFilePath, 'utf8').replace(/project__name__/g, projectName);
+  
+      fse.writeFileSync(writePath, contents, {
+        encoding: 'utf8',
+        mode: '0755',
+      });
+    }
+    } else if (stats.isDirectory()) {
+      fse.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`, { mode: '0755' });
+      
+      // recursive call
+      createDirectoryContents(projectName, `${templatePath}/${file}`, `${newProjectPath}/${file}`);
+   
+  }
+  });
 }
 
 program.parse()

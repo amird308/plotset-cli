@@ -82,20 +82,6 @@ const transformData = async newData => {
   return otherData
 }
 
-window.addEventListener(
-  'load',
-  () => {
-    base_first_time({
-      _col_rel: { value: 'value', title: 'name' },
-      _config: {
-        'chart.title.color': '#111'
-      },
-      _data: [{ year: '1900', name: 'iran', value: '400' }]
-    })
-  },
-  false
-)
-
 const change_config_handler = () => {
   if (!chart) return
   updateOptionsStyles()
@@ -107,6 +93,7 @@ const resizeHandler = () => {
     height: height
   })
 }
+
 module.exports = {
   change_config_handler,
   resizeHandler,
