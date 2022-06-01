@@ -83,7 +83,7 @@ program.command('login').action(async () => {
   console.log(chalk.green(`welcome ${userInfo.email}`))
 })
 
-program.command('create').action(async () => {
+program.command('new').action(async () => {
   const check = await checkAuth()
   if (!check) await login()
   const result = await newProject()
@@ -104,7 +104,7 @@ program.command('profile').action(async () => {
   console.log(chalk.green(`lastname: ${user?.lastname || '-'}`))
 })
 
-program.command('deploy').action(async () => {
+program.command('publish').action(async () => {
   const check = await checkAuth()
   exec('npm run build')
   if (!check) await login()

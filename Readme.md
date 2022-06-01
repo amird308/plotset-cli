@@ -9,13 +9,13 @@
 ```
 plotset login
 ```
-## create project
+## new project
 
 ```
-plotset create project-name
+plotset new project-name
 ```
 
-whit this commend ploset created template in this current path.
+whit this commend ploset generated template in this current path.
 
 the template includes the following files (in src folder).
 
@@ -31,8 +31,15 @@ the template includes the following files (in src folder).
 1. Write the code javascript in this folder and import in src/js/index.js.
 2. You must have this methods which we will discuss in the following.
 
-... init_handler 
+method | when run this method in base plotset? | required 
+init_handler | `first time` `change data` `change col rel(bindings)` | true
+transformData| `first time`  `change data` `change col rel(binding)` | false
+change_config_handler| `change config(setting)` | true
+resizeHandler| `resize iframe` | true
+
+
 ... transformData
+when run this method in base plotset
 ... change_config_handler
 ... resizeHandler
 
@@ -53,31 +60,31 @@ the template includes the following files (in src folder).
 
 * data.csv
 
-...Sample default data chart for user guide.
+...sample default data chart for user guide.
 
 ***
 
 * info.json
 
-...You must enter the name and category of the chart in this file.
+...you must enter the name and category of the chart in this file.
 
 ***
 
 * settings.json
 
-1. This file puts your chart settings and inputs into poltset.com and allows you to change the settings.
-2. You must also enter the default value of the chart settings in this file.
+1. this file puts your chart settings and inputs into poltset.com and allows you to change the settings.
+2. you must also enter the default value of the chart settings in this file.
 
 ***
 
 * thumbnail.png
 
-... This is a preview of your chart image on plotset.com.
+...this is a preview of your chart image on plotset.com.
 
 ***
 
-## deploy
+## publish
 ```
-plotset deploy
+plotset publish
 
 ```
