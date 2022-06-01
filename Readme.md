@@ -15,7 +15,7 @@ plotset login
 plotset new project-name
 ```
 
-whit this commend ploset generated template in this current path.
+whit this commend ploset generated template in current root.
 
 the template includes the following files (in src folder).
 
@@ -33,9 +33,9 @@ the template includes the following files (in src folder).
 
 method | when run this method in base plotset? | required 
 init_handler | `first time` `change data` `change col rel(bindings)` | true
-transformData| `first time`  `change data` `change col rel(binding)` | false
-change_config_handler| `change config(setting)` | true
-resizeHandler| `resize iframe` | true
+transformData | `first time`  `change data` `change col rel(binding)` | false
+change_config_handler | `change config(setting)` | true
+resizeHandler | `resize iframe` | true
 
 
 ... transformData
