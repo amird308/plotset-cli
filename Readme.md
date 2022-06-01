@@ -32,6 +32,7 @@ the template includes the following files (in src folder).
 2. You must have this methods which we will discuss in the following.
 
 method | when run this method in base plotset? | required 
+--- | --- | ---
 init_handler | `first time` `change data` `change col rel(bindings)` | true
 transformData | `first time`  `change data` `change col rel(binding)` | false
 change_config_handler | `change config(setting)` | true
