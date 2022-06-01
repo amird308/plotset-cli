@@ -84,9 +84,9 @@ plotset publish
 ```
 enter `template id` if you want update your template or enter `new` if you have new template.
 
-note: if exist templateId field in directoryTemplate/plotset.json
+note: if exist templateId field in this file `directoryTemplate/plotset.json` The templateId is automatically read from there.
 
-like this 
+#### sample plotset.json  
 
 ```
 {
