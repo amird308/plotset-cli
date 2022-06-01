@@ -15,7 +15,7 @@ plotset login
 plotset new project-name
 ```
 
-whit this commend ploset generated template in current root.
+with this commend ploset generated template in current root.
 
 the template includes the following files (in src folder).
 
