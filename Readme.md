@@ -93,25 +93,25 @@ plotset publish
 
 ### data
 ### backupData
-
 ### config
 ### oldConfig
-
 ### col_rel
 ### width
-
 ### height
 ### init_handler
-
 ### change_config_handler
 ### transformData
-
 ### resizeHandler
 
+## lifecycle events
+### first time
 ![alt text](https://raw.githubusercontent.com/amird308/plotset-cli/main/first_time.png "first time")
 
+### change data
 ![alt text](https://raw.githubusercontent.com/amird308/plotset-cli/main/change_data.png "change data")
 
+### change col rel
 ![alt text](https://raw.githubusercontent.com/amird308/plotset-cli/main/change_col_rel.png "change col rel")
 
+### change config
 ![alt text](https://raw.githubusercontent.com/amird308/plotset-cli/main/change_config.png "change config")
