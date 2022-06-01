@@ -26,7 +26,7 @@ const LOGIN_QUESTIONS = [
 
 const TAKE_PROJECT_ID = [
   {
-    name: 'projectId',
+    name: 'templateId',
     type: 'input',
     default: 'new',
     message: 'project id( new = new project):'
@@ -114,7 +114,7 @@ program.command('publish').action(async () => {
     console.log(chalk.green('npm run build'))
     return
   }
-  let projectId = null
+  let templateId = null
   const plotsetJsonExists = await fse.pathExists(`${CURR_DIR}/plotset.json`)
   const plotsetJson = plotsetJsonExists
     ? await fse.readJSON(`${CURR_DIR}/plotset.json`)
@@ -142,14 +142,14 @@ program.command('publish').action(async () => {
 
   await zip.writeZipPromise(outputFile)
 
-  if (!plotsetJson.projectId) {
+  if (!plotsetJson.templateId) {
     await inquirer.prompt(TAKE_PROJECT_ID).then(async answers => {
-      projectId = answers.projectId
+      templateId = answers.templateId
     })
   } else {
-    projectId = plotsetJson.projectId
+    templateId = plotsetJson.templateId
   }
-  if (projectId === 'new') {
+  if (templateId === 'new') {
     // create project
     const buildFile = fse.createReadStream(`${CURR_DIR}/build.zip`)
     const form_data = new FormData()
@@ -175,7 +175,7 @@ program.command('publish').action(async () => {
     const form_data = new FormData()
     form_data.append('file', buildFile)
     mainAxios
-      .put(`/template/edit/${projectId}`, form_data, {
+      .put(`/template/edit/${templateId}`, form_data, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

@@ -9,13 +9,13 @@
 ```
 plotset login
 ```
-## new project
+## new template
 
 ```
-plotset new project-name
+plotset new template-name
 ```
 
-with this commend ploset generated template in current root.
+with this commend ploset generated template in current directory.
 
 the template includes the following files (in src folder).
 
@@ -55,26 +55,26 @@ resizeHandler | `resize iframe` | true
 
 * data.csv
 
-default data chart.
+default data template.
 
 ***
 
 * info.json
 
-you must enter the name and category of the chart in this file.
+you must enter the name and category of the template in this file.
 
 ***
 
 * settings.json
 
-1. this file puts your chart settings and inputs into poltset.com and allows you to change the settings.
-2. you must also enter the default value of the chart settings in this file.
+1. this file puts your template settings and inputs into poltset.com and allows you to change the settings.
+2. you must also enter the default value of the template settings in this file.
 
 ***
 
 * thumbnail.png
 
-this is a preview of your chart image on plotset.com.
+this is a preview of your template image on plotset.com.
 
 ***
 
@@ -82,6 +82,18 @@ this is a preview of your chart image on plotset.com.
 ```
 plotset publish
 ```
+enter `template id` if you want update your template or enter `new` if you have new template.
+
+note: if exist templateId field in directoryTemplate/plotset.json
+
+like this 
+
+```
+{
+    "templateId": 102
+}
+```
+
 
 
 
