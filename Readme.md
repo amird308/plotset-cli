@@ -90,7 +90,6 @@ plotset publish
 
 ## API Global Methods and Variable
 
-
 ### data
 ### backupData
 ### config
@@ -104,14 +103,14 @@ plotset publish
 ### resizeHandler
 
 ## lifecycle events
-### first time
+#### first time
 ![alt text](https://raw.githubusercontent.com/amird308/plotset-cli/main/first_time.png "first time")
 
-### change data
+#### change data
 ![alt text](https://raw.githubusercontent.com/amird308/plotset-cli/main/change_data.png "change data")
 
-### change col rel
+#### change col rel
 ![alt text](https://raw.githubusercontent.com/amird308/plotset-cli/main/change_col_rel.png "change col rel")
 
-### change config
+#### change config
 ![alt text](https://raw.githubusercontent.com/amird308/plotset-cli/main/change_config.png "change config")
