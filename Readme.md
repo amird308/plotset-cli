@@ -38,12 +38,6 @@ transformData | `first time`  `change data` `change col rel(binding)` | false
 change_config_handler | `change config(setting)` | true
 resizeHandler | `resize iframe` | true
 
-
-... transformData
-when run this method in base plotset
-... change_config_handler
-... resizeHandler
-
 ***
 
 * index.html
@@ -55,19 +49,19 @@ when run this method in base plotset
 
 * bindings.json
 
-...
+⋅⋅⋅
 
 ***
 
 * data.csv
 
-...sample default data chart for user guide.
+⋅⋅⋅sample default data chart for user guide.
 
 ***
 
 * info.json
 
-...you must enter the name and category of the chart in this file.
+⋅⋅⋅you must enter the name and category of the chart in this file.
 
 ***
 
@@ -80,7 +74,7 @@ when run this method in base plotset
 
 * thumbnail.png
 
-...this is a preview of your chart image on plotset.com.
+⋅⋅⋅this is a preview of your chart image on plotset.com.
 
 ***
 
