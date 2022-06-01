@@ -1,6 +1,6 @@
 {
-  "name": "plotset-cli",
-  "version": "1.0.28",
+  "name": "plotset",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "author": "Amir Damirchi <amird308@gmail.com>",
