@@ -55,13 +55,13 @@ resizeHandler | `resize iframe` | true
 
 * data.csv
 
-⋅⋅⋅sample default data chart for user guide.⋅⋅
+default data chart.
 
 ***
 
 * info.json
 
-⋅⋅⋅you must enter the name and category of the chart in this file.⋅⋅
+you must enter the name and category of the chart in this file.
 
 ***
 
@@ -74,12 +74,36 @@ resizeHandler | `resize iframe` | true
 
 * thumbnail.png
 
-⋅⋅⋅this is a preview of your chart image on plotset.com.⋅⋅
+this is a preview of your chart image on plotset.com.
 
 ***
 
 ## publish
 ```
 plotset publish
-
 ```
+
+
+
+
+
+
+## API Global Methods and Variable
+
+
+### data
+### backupData
+
+### config
+### oldConfig
+
+### col_rel
+### width
+
+### height
+### init_handler
+
+### change_config_handler
+### transformData
+
+### resizeHandler
